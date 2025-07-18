@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} No title {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+  </head>
+  <body>
+    <nav>
+        <h1>Website Project</h1>
+        <ul>
+            <li><a href="/">Home</a></li>
+          
+            {% if user.is_authenticated %}
+                <li id="Profile"><a href="/profile/">{{user.username}}'s Profile</a></li>
+                <li id="logout"><a href="/logout/">Logout</a></li>
+            {% else %}
+                <li id="login"><a href="/login/">Login</a></li>
+                <li id="register"><a href="/register/">Register</a></li>
+            {% endif %}
+        </ul> 
+    </nav>
+
+    <main>{% block content %} no content {% endblock %}</main>
+  </body>
+</html>

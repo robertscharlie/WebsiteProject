@@ -1,0 +1,110 @@
+<script>
+    setTimeout(function() {
+        window.location.reload();
+    }, 5000);
+</script>
+
+{% extends "main/base.html" %} 
+
+{% block title %} 
+  Server Information
+{% endblock %} 
+
+{% block content %}
+    <h2>Django Server Information</h2>
+
+    <h3>Python & Django</h3>
+    <ul>
+        <li><strong>Python Version:</strong> {{ python_version }}</li>
+        <li><strong>Django Version:</strong> {{ django_version }}</li>
+        <li><strong>Debug Mode:</strong> {{ debug_mode }}</li>
+        <li><strong>Installed Apps:</strong>
+            <ul>
+                {% for app in installed_apps %}
+                    <li>{{ app }}</li>
+                {% endfor %}
+            </ul>
+        </li>
+    </ul>
+
+    <h3>Database</h3>
+    <ul>
+        <li><strong>Database Engine:</strong> {{ db_engine }}</li>
+        <li><strong>Database Name:</strong> {{ db_name }}</li>
+    </ul>
+
+    <h3>Server & OS</h3>
+    <ul>
+        <li><strong>Operating System:</strong> {{ os }}</li>
+        <li><strong>OS Version:</strong> {{ os_version }}</li>
+        <li><strong>Machine:</strong> {{ machine }}</li>
+        <li><strong>Processor:</strong> {{ processor }}</li>
+        <li><strong>Hostname:</strong> {{ hostname }}</li>
+        <li><strong>Platform:</strong> {{ platform }}</li>
+        <li><strong>Architecture:</strong> {{ architecture }}</li>
+        <li><strong>Release:</strong> {{ release }}</li>
+        <li><strong>CPU Count:</strong> {{ cpu_count }}</li>
+        <li><strong>CPU Frequency (MHz):</strong> {{ cpu_freq_mhz }}</li>
+        <li><strong>CPU Usage (%):</strong> {{ cpu_usage_percent }}</li>
+    </ul>
+
+    <h3>Memory</h3>
+    <ul>
+        <li><strong>Memory Total (MB):</strong> {{ memory_total_mb }}</li>
+        <li><strong>Memory Used (MB):</strong> {{ memory_used_mb }}</li>
+        <li><strong>Memory Available (MB):</strong> {{ memory_available_mb }}</li>
+        <li><strong>Memory Usage (%):</strong> {{ memory_percent }}</li>
+    </ul>
+
+    <h3>Disk</h3>
+    <ul>
+        <li><strong>Disk Total (GB):</strong> {{ disk_total_gb }}</li>
+        <li><strong>Disk Used (GB):</strong> {{ disk_used_gb }}</li>
+        <li><strong>Disk Free (GB):</strong> {{ disk_free_gb }}</li>
+        <li><strong>Disk Usage (%):</strong> {{ disk_percent }}</li>
+    </ul>
+
+    <h3>Network</h3>
+    <ul>
+        <li><strong>IP Addresses:</strong>
+            <ul>
+                {% for ip in ip_addresses %}
+                    <li>{{ ip }}</li>
+                {% empty %}
+                    <li>(None)</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><strong>Network IO Sent (MB):</strong> {{ network_io_sent_mb }}</li>
+        <li><strong>Network IO Received (MB):</strong> {{ network_io_recv_mb }}</li>
+    </ul>
+
+    <h3>Django/Server Uptime</h3>
+    <ul>
+        <li><strong>Django Server Uptime (seconds):</strong> {{ django_server_uptime_seconds }}</li>
+        <li><strong>Django Server Uptime (formatted):</strong> {{ django_server_uptime_string }}</li>
+    </ul>
+
+    <h3>System Uptime</h3>
+    <ul>
+        <li><strong>System Uptime (seconds):</strong> {{ uptime_seconds }}</li>
+        <li><strong>System Uptime (formatted):</strong> {{ uptime_string }}</li>
+        <li><strong>System Boot Time:</strong> {{ boot_time }}</li>
+    </ul>
+
+    <h3>Django Settings</h3>
+    <ul>
+        <li><strong>Allowed Hosts:</strong>
+            <ul>
+                {% for host in allowed_hosts %}
+                    <li>{{ host }}</li>
+                {% empty %}
+                    <li>(None)</li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li><strong>Time Zone:</strong> {{ time_zone }}</li>
+        <li><strong>Static URL:</strong> {{ static_url }}</li>
+        <li><strong>Media URL:</strong> {{ media_url }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "main/base.html" %} 
+
+{% block title %} 
+  File Upload
+{% endblock %} 
+
+{% block content %}
+    <h1>File Upload</h1>
+    <p>Welcome to the File Upload section!</p>
+
+    <h2>Available Actions</h2>
+
+    <ul>
+        <li><a href="{% url 'fileViewPage' %}">View Files</a></li>
+        <li><a href="{% url 'fileUploadPage' %}">Upload a File</a></li>
+    </ul>
+
+    <h2>Upload a File</h2>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+    </form>
+
+    <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
