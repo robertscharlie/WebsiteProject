@@ -19,7 +19,9 @@
       <li>News</li>
       <li>Flip a Coin</li>
       <li>Games</li>
-      <li><a href="/server">Server Information</a></li>
+      {% if user.is_staff %}
+        <li><a href="/server">Server Information</a></li>
+      {% endif %}
     </ul>
 
 {% else %}

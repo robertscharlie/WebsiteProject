@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-from django.contrib.sessions.models import Session
+from django.contrib.admin.views.decorators import staff_member_required
 import sys
 import django
 from django.conf import settings
@@ -12,7 +11,7 @@ import psutil
 
 # Create your views here.
 
-@login_required(login_url='login')
+@staff_member_required(login_url='login')
 def serverViewPage(request):
     # Python & Django
     python_version = sys.version.split()[0]

@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Django
+crobwebsite/db.sqlite3
+crobwebsite/media/
+staticfiles/
+
+# Environment variables / secrets
+.env
+
+# Editor/OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

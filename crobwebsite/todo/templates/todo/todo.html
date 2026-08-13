@@ -37,9 +37,10 @@
           <a href="{% url 'todo:todoEdit' todo.pk %}">
             <button class="todoAction edit">Edit</button>
           </a>
-          <a href="{% url 'todo:todoDelete' todo.pk %}">
-            <button class="todoAction delete">Delete</button>
-          </a>
+          <form method="post" action="{% url 'todo:todoDelete' todo.pk %}" class="deleteForm">
+            {% csrf_token %}
+            <button type="submit" class="todoAction delete">Delete</button>
+          </form>
           <span class="todoDate">Due: {{ todo.dueDate }}</span>
           <span class="todoRemind">Remind: {{ todo.remindDate }}</span>
         </div>

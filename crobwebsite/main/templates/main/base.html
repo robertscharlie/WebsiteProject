@@ -11,7 +11,7 @@
     <nav>
         <h1>Website Project</h1>
         <ul>
-            <li><a href="/">Home</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
           
             {% if user.is_authenticated %}
                 <li id="Profile"><a href="/profile/">{{user.username}}'s Profile</a></li>

@@ -15,17 +15,30 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# load a .env file at the repo root if there is one
+_env_path = BASE_DIR.parent / '.env'
+if _env_path.exists():
+    for _line in _env_path.read_text().splitlines():
+        _line = _line.strip()
+        if not _line or _line.startswith('#') or '=' not in _line:
+            continue
+        _key, _value = _line.split('=', 1)
+        os.environ.setdefault(_key.strip(), _value.strip())
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-$$cu99(-%5g_6_(53d&=(x0ct51&-*0wn3ok8nf071$or^@h!4'
+SECRET_KEY = os.environ.get(
+    'SECRET_KEY',
+    'django-insecure-$$cu99(-%5g_6_(53d&=(x0ct51&-*0wn3ok8nf071$or^@h!4',
+)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [h for h in os.environ.get('ALLOWED_HOSTS', '').split(',') if h]
 
 
 # Application definition

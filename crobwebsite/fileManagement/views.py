@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import FileResponse
 from django.contrib.auth.decorators import login_required
 from .forms import UploadForm
@@ -28,5 +28,5 @@ def fileUploadPage(request):
 
 @login_required(login_url='login')
 def downloadFile(request, fileID):
-    upload = UploadedFile.objects.get(id=fileID, user=request.user)
+    upload = get_object_or_404(UploadedFile, id=fileID, user=request.user)
     return FileResponse(upload.file.open('rb'), as_attachment=True)

@@ -12,14 +12,3 @@ class TodoItem(models.Model):
 
     def __str__(self):
         return f"ID:{self.pk}, TITLE:{self.title}, USER:{self.user.username}"
-    
-    def update(self, title=None, completed=None, dueDate=None, remindDate=None):
-        if title is not None:
-            self.title = title
-        if completed is not None:
-            self.completed = completed
-        if dueDate is not None:
-            self.dueDate = dueDate
-        if remindDate is not None:
-            self.remindDate = remindDate
-        self.save()
