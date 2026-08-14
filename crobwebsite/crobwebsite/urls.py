@@ -25,6 +25,7 @@ urlpatterns = [
     path('files/', include('fileManagement.urls')),
     path('todo/', include('todo.urls')),
     path('server/', include('serverInfo.urls')),
+    path('random/', include('randomTools.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} No title {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'main/style.css' %}" />
+    {% block extrahead %}{% endblock %}
   </head>
   <body>
     <nav>
@@ -24,5 +25,6 @@
     </nav>
 
     <main>{% block content %} no content {% endblock %}</main>
+    {% block scripts %}{% endblock %}
   </body>
 </html>

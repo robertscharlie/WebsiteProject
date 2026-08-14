@@ -14,7 +14,8 @@ def todoPage(request):
         # Checkbox toggle submission
         todo_id = request.POST.get('todo_id')
         completed = request.POST.get('completed') == 'on'
-        TodoItem.objects.filter(pk=todo_id, user=request.user).update(completed=completed)
+        if todo_id and todo_id.isdigit():
+            TodoItem.objects.filter(pk=todo_id, user=request.user).update(completed=completed)
         return redirect('todo:todo')
     elif request.method == 'POST':
         # New todo item submission

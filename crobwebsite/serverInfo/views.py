@@ -5,6 +5,7 @@ import django
 from django.conf import settings
 import os
 import platform
+import socket
 import time
 import psutil
 
@@ -55,7 +56,7 @@ def serverViewPage(request):
     ip_addresses = []
     for iface, addrs in psutil.net_if_addrs().items():
         for addr in addrs:
-            if addr.family == getattr(psutil, 'AF_INET', 2):
+            if addr.family == socket.AF_INET:
                 ip_addresses.append(addr.address)
     network_io = psutil.net_io_counters()
     network_io_sent_mb = round(network_io.bytes_sent / 1024 / 1024, 2)

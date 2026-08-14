@@ -35,3 +35,17 @@ repo root to set them locally; it's picked up automatically and gitignored.
 
 Server Info (`/server/`) is staff-only since it shows the hostname, DB path, IPs
 etc. Make a user staff via `createsuperuser` or the `is_staff` flag in `/admin/`.
+
+## To-do reminders
+
+Each to-do item has a remind date. Running
+
+```bash
+python manage.py send_reminders
+```
+
+emails users (at their account's email address) about any items whose remind
+date has passed and haven't been reminded about yet. Without SMTP settings
+configured (see `.env.example`), emails are printed to the console instead of
+sent. Schedule this command periodically (cron, Task Scheduler, etc.) to have
+reminders actually go out.

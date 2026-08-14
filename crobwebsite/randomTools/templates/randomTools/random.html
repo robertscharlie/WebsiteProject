@@ -1,0 +1,124 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}
+  Random Tools
+{% endblock %}
+
+{% block extrahead %}
+  <link rel="stylesheet" href="{% static 'randomTools/random.css' %}" />
+{% endblock %}
+
+{% block content %}
+  <h1>Random Tools</h1>
+  <p>A grab bag of randomness. Nothing here is saved anywhere.</p>
+
+  <div class="randomGrid">
+
+    <section class="randomCard" id="coinCard">
+      <h2>Coin Flip</h2>
+      <div class="coin" id="coin"><span id="coinFace">?</span></div>
+      <button type="button" id="coinFlipBtn">Flip</button>
+    </section>
+
+    <section class="randomCard" id="diceCard">
+      <h2>Dice Roller</h2>
+      <div class="fieldRow">
+        <label>Dice <input type="number" id="diceCount" min="1" max="12" value="2"></label>
+        <label>Sides
+          <select id="diceSides">
+            <option value="4">d4</option>
+            <option value="6" selected>d6</option>
+            <option value="8">d8</option>
+            <option value="10">d10</option>
+            <option value="12">d12</option>
+            <option value="20">d20</option>
+          </select>
+        </label>
+      </div>
+      <div class="diceResults" id="diceResults"></div>
+      <p id="diceTotal"></p>
+      <button type="button" id="diceRollBtn">Roll</button>
+    </section>
+
+    <section class="randomCard" id="numberCard">
+      <h2>Random Number</h2>
+      <div class="fieldRow">
+        <label>Min <input type="number" id="numMin" value="1"></label>
+        <label>Max <input type="number" id="numMax" value="100"></label>
+      </div>
+      <p class="bigResult" id="numberResult">-</p>
+      <button type="button" id="numberGenBtn">Generate</button>
+    </section>
+
+    <section class="randomCard" id="wheelCard">
+      <h2>Spin the Wheel</h2>
+      <textarea id="wheelOptions" rows="4" placeholder="One option per line">Pizza
+Sushi
+Burgers
+Tacos
+Salad</textarea>
+      <div class="wheelWrap">
+        <div class="wheelPointer"></div>
+        <canvas id="wheelCanvas" width="260" height="260"></canvas>
+      </div>
+      <p class="bigResult" id="wheelResult"></p>
+      <button type="button" id="wheelSpinBtn">Spin</button>
+    </section>
+
+    <section class="randomCard" id="eightBallCard">
+      <h2>Magic 8-Ball</h2>
+      <div class="eightBall" id="eightBall">
+        <span id="eightBallAnswer">Ask away</span>
+      </div>
+      <input type="text" id="eightBallQuestion" placeholder="Ask a yes/no question...">
+      <button type="button" id="eightBallBtn">Ask</button>
+    </section>
+
+    <section class="randomCard" id="passwordCard">
+      <h2>Password Generator</h2>
+      <div class="fieldRow">
+        <label>Length <input type="number" id="pwLength" min="4" max="64" value="16"></label>
+      </div>
+      <div class="fieldRow checkRow">
+        <label><input type="checkbox" id="pwUpper" checked> A-Z</label>
+        <label><input type="checkbox" id="pwLower" checked> a-z</label>
+        <label><input type="checkbox" id="pwNumbers" checked> 0-9</label>
+        <label><input type="checkbox" id="pwSymbols"> !@#$</label>
+      </div>
+      <div class="copyRow">
+        <input type="text" id="pwResult" readonly>
+        <button type="button" id="pwCopyBtn">Copy</button>
+      </div>
+      <button type="button" id="pwGenBtn">Generate</button>
+    </section>
+
+    <section class="randomCard" id="colorCard">
+      <h2>Random Color</h2>
+      <div class="colorSwatch" id="colorSwatch"></div>
+      <div class="copyRow">
+        <input type="text" id="colorResult" readonly>
+        <button type="button" id="colorCopyBtn">Copy</button>
+      </div>
+      <button type="button" id="colorGenBtn">Generate</button>
+    </section>
+
+    <section class="randomCard" id="listCard">
+      <h2>List Shuffler / Picker</h2>
+      <textarea id="listItems" rows="4" placeholder="One item per line">Alice
+Bob
+Charlie
+Dana</textarea>
+      <p class="bigResult" id="listResult"></p>
+      <div class="fieldRow">
+        <button type="button" id="listShuffleBtn">Shuffle</button>
+        <button type="button" id="listPickBtn">Pick One</button>
+      </div>
+    </section>
+
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'randomTools/random.js' %}"></script>
+{% endblock %}

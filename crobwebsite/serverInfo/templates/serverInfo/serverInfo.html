@@ -1,14 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Server Information
+{% endblock %}
+
+{% block scripts %}
 <script>
     setTimeout(function() {
         window.location.reload();
     }, 5000);
 </script>
-
-{% extends "main/base.html" %} 
-
-{% block title %} 
-  Server Information
-{% endblock %} 
+{% endblock %}
 
 {% block content %}
     <h2>Django Server Information</h2>
