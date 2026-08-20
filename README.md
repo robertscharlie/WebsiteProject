@@ -9,6 +9,21 @@ status page.
 - **fileManagement**: per-user file uploads/downloads
 - **todo**: per-user to-do list with due dates and reminders
 - **serverInfo**: server/system diagnostics page (staff only)
+- **randomTools**: a grab-bag of client-side generators (coin flip, dice, password generator, and more)
+
+## Screenshots
+
+**Home**
+![Home](screenshots/home.png)
+
+**To Do**
+![To Do](screenshots/todo.png)
+
+**Random Tools**
+![Random Tools](screenshots/random_tools.png)
+
+**Server Info**
+![Server Info](screenshots/server_info.png)
 
 ## Setup
 
