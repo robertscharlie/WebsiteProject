@@ -1,4 +1,4 @@
-# crobwebsite
+# websiteproject
 
 Django site with accounts, per-user file storage, a to-do list, and a server
 status page.
@@ -32,7 +32,7 @@ python -m venv venv
 source venv/bin/activate    # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
-cd crobwebsite
+cd websiteproject
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver

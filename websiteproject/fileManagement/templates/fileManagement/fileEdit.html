@@ -1,0 +1,32 @@
+{% extends "main/base.html" %}
+
+{% block title %}
+  Rename File
+{% endblock %}
+
+{% block content %}
+    <h1>File Management</h1>
+    <p>Welcome to the File Management section!</p>
+
+    <h2>Available Actions</h2>
+    <ul>
+        <li><a href="{% url 'fileViewPage' %}">View Files</a></li>
+        <li><a href="{% url 'fileUploadPage' %}">Upload a File</a></li>
+    </ul>
+
+    <h2>Rename File</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+
+    <h2>File Details</h2>
+    <ul class="fileList">
+      <li class="fileElement">
+        <span>Uploaded on: {{ upload.uploaded_at }}</span><br>
+        <span>File Size: {{ upload.file.size|filesizeformat }}</span><br>
+      </li>
+    </ul>
+
+{% endblock %}

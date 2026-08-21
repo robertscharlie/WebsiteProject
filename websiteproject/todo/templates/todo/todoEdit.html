@@ -1,0 +1,34 @@
+{% extends "main/base.html" %} 
+
+{% block title %} 
+  To Do Editing
+{% endblock %} 
+
+{% block content %}
+    <h1>To Do</h1>
+    <p>Welcome to the To Do Editing section!</p>
+
+    <h2>Edit To Do Item</h2>
+    <form method="post" enctype="multipart/form-data">  
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update To Do Item</button>
+    </form>
+
+  <h2>Your To Do Item</h2>
+
+  <ul class="todoGroup">
+      <li class="todoBox">
+        <div class="todoHeader">
+          <span class="todoTitle">{{ todoItem.title }}</span>
+          <span class="todoPriority priority-{{ todoItem.priority }}">{{ todoItem.get_priority_display }}</span>
+        </div>
+
+        <div class="todoFooter">
+          <span class="todoDate">Due: {{ todoItem.dueDate }}</span>
+          <span class="todoRemind">Remind: {{ todoItem.remindDate }}</span>
+        </div>
+      </li>
+  </ul>
+
+{% endblock %}

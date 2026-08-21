@@ -9,8 +9,8 @@ env/
 .venv/
 
 # Django
-crobwebsite/db.sqlite3
-crobwebsite/media/
+websiteproject/db.sqlite3
+websiteproject/media/
 staticfiles/
 
 # Environment variables / secrets

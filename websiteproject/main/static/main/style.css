@@ -1,0 +1,219 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+    padding: 0px 10px;
+}
+
+nav {
+    background-color: #1164a3;
+    padding: 0px 10px;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+nav h1 {
+    margin: 10px 0px;
+    font-size: 200%;
+    align-self: center;
+    text-decoration: none;
+    color: white;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav li {
+    list-style: none;
+    padding: 10px;
+    font-weight: bold;
+    align-items: center;
+}
+
+nav li#welcome {
+    font-weight: lighter;
+    color: black;
+    background-color: #0e4f81;
+    border-radius: 5px;
+    margin: 0px 20px 0px 10px;
+}
+
+nav li#logout {
+    background-color: red;
+    border-radius: 5px;
+}
+
+nav li a {
+    color: white;
+    text-decoration: none
+}
+
+nav li a:hover {
+    color: yellow;
+}
+
+.todoGroup {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.todoBox {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: #f9f9f9;
+}
+
+.todoBox.completed {
+    background-color: #d4edda;
+    text-decoration: line-through;
+}
+
+.todoBox.overdue {
+    background-color: #f8d7da;
+    border-color: #f1aeb5;
+}
+
+.todoFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.todoHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 13px;
+}
+
+.todoHeader input[type="checkbox"] {
+    margin-right: 20px;
+    transform: scale(1.5);
+}
+
+.todoTitle {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.todoPriority {
+    margin-left: 12px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.priority-low {
+    background-color: #6c757d;
+}
+
+.priority-medium {
+    background-color: #1164a3;
+}
+
+.priority-high {
+    background-color: #dc3545;
+}
+
+.todoOverdueBadge {
+    margin-left: 12px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.6em;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #d40000;
+}
+
+.todoFooter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    color: #555;
+}
+
+.deleteForm {
+    margin: 0;
+    display: contents;
+}
+
+.todoAction {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.todoAction:hover {
+    background-color: #d5d5d5;
+}
+
+.todoDate,
+.todoRemind {
+    margin-right: 10px;
+    color: #777;
+    display: inline-flex;
+    align-items: center;
+}
+
+.fileSearch {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.fileList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fileElement {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    padding: 12px;
+    background-color: #f9f9f9;
+}
+
+.fileActions {
+    display: flex;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.fileAction {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.fileAction:hover {
+    background-color: #d5d5d5;
+}
+
+.fileAction.delete {
+    background-color: #f5c2c7;
+}
+
+.fileAction.delete:hover {
+    background-color: #f1aeb5;
+}

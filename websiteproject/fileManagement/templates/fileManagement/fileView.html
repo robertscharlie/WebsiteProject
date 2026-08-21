@@ -1,0 +1,52 @@
+{% extends "main/base.html" %} 
+
+{% block title %} 
+  File View
+{% endblock %} 
+
+{% block content %}
+    <h1>File View</h1>
+    <p>Welcome to the File View section!</p>
+
+    <h2>Available Actions</h2>
+    <ul>
+        <li><a href="{% url 'fileViewPage' %}">View Files</a></li>
+        <li><a href="{% url 'fileUploadPage' %}">Upload a File</a></li>
+    </ul>
+
+    <h2>Uploaded Files</h2>
+
+    <form method="get" class="fileSearch">
+        <input type="text" name="q" value="{{ query }}" placeholder="Search files by title...">
+        <button type="submit">Search</button>
+        {% if query %}<a href="{% url 'fileViewPage' %}">Clear</a>{% endif %}
+    </form>
+
+    <p>
+      {% if query %}
+        Files matching "{{ query }}":
+      {% else %}
+        Here are the files you have uploaded:
+      {% endif %}
+    </p>
+
+    <ul class="fileList">
+      {% for file in files %}
+          <li class="fileElement">
+            <a href="{% url 'downloadFile' file.id %}">{{ file.title }}</a><br>
+            <span>Uploaded on: {{ file.uploaded_at }}</span><br>
+            <span>File Size: {{ file.file.size|filesizeformat }}</span><br>
+            <div class="fileActions">
+              <a href="{% url 'fileEditPage' file.id %}"><button type="button" class="fileAction edit">Rename</button></a>
+              <form method="post" action="{% url 'fileDeletePage' file.id %}" class="deleteForm">
+                {% csrf_token %}
+                <button type="submit" class="fileAction delete">Delete</button>
+              </form>
+            </div>
+          </li>
+      {% empty %}
+          <li>{% if query %}No files match your search.{% else %}You haven't uploaded any files yet.{% endif %}</li>
+      {% endfor %}
+    </ul>
+
+{% endblock %}
