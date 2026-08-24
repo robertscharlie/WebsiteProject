@@ -16,6 +16,15 @@ status page.
 **Home**
 ![Home](screenshots/home.png)
 
+**Login**
+![Login](screenshots/login.png)
+
+**Register**
+![Register](screenshots/register.png)
+
+**File Management**
+![File Management](screenshots/file_management.png)
+
 **To Do**
 ![To Do](screenshots/todo.png)
 
